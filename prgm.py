@@ -37,6 +37,25 @@ def calculerTotalHTCommande():
         totalHT = int(commande[article][0])*int(commande[article][1]) + totalHT
     return totalHT
 
+# Proposer ajout un article
+def proposerAjouterArticle():
+    choix=input("Voulez vous ajouter un article? o pour oui, n pour non ")
+    ajouterUnArticle(choix)
+    
+# Imprimer la commande
+def printCommandeEntier():
+    for article in commande:
+        print(saisirPUEtQuantite(commande[article][0],commande[article][1]))
+        
+# Ajouter un article    
+def ajouterUnArticle(choix):
+    if choix =='o':
+        print(creerUnArticle(None, None))
+    if choix =='n':
+        printCommandeEntier()
+    else:
+        proposerAjouterArticle()
+
 def printFooter():
     print("-------------------------------")
     print("Total without taxes" + "     " + str(calculerTotalHTCommande()))
@@ -44,4 +63,5 @@ def printFooter():
 if __name__ == "__main__":
     init()
     print(creerUnArticle(None, None))
+    proposerAjouterArticle()
     printFooter()
