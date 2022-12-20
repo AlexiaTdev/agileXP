@@ -14,21 +14,22 @@ def testsaisirPUEtQuantite():
     # Alors le prix total de l'article est calculé (articleTotalPrice = quantity*unit price)
     # Et la ligne suivante s'affiche :
         # quantity + "                " + unit price + "                " + articleTotalPrice
-    assert prgm.saisirPUEtQuantite(2,4) == "2     4     8", "problème de quantité, d'unité ou de prix total de l'article"
+    assert prgm.saisirPUEtQuantite(2,4,"") == "     2     4     8", "problème de quantité, d'unité ou de prix total de l'article"
 
 #Id 3 (depend ID2)
 def testAjoutArticle():
     #etant donné une commande où j'ai terminé de renseigner un article,
     #quand on me propose de rajouter un article et que je réponds oui, 
     #alors je continue l'ajout d'article
-    prgm.creerUnArticle(1,1)
+    prgm.creerUnArticle(1,1,"")
     assert len(prgm.commande) == 2, "problème d'ajout"
 
     #etant donné une commande où j'ai terminé de renseigner un article,
     #quand on me propose de rajouter un article et que je réponds non, 
     #alors je finis ma commande
     for article in prgm.commande:
-        assert (prgm.saisirPUEtQuantite(prgm.commande[article][0], prgm.commande[article][1])) == "1     1     1", "problème d'affichage de la liste d article"
+        assert (prgm.saisirPUEtQuantite(prgm.commande[article][0], prgm.commande[article][1],prgm.commande[article][2])) == "     1     1     1", "problème d'affichage de la liste d article"
+
 
 #Id 4 (depend ID2)
 def testAfficherLePrixTotal():
@@ -37,7 +38,7 @@ def testAfficherLePrixTotal():
     # alors j'affiche une ligne de la manière suivante :
         #"-----------------------------------------------------"
         #"Total without taxes" + totalHT
-    prgm.creerUnArticle(1,1)
+    prgm.creerUnArticle(1,1,"")
     assert prgm.calculerTotalHTCommande() == 1, "probleme de total HT"
 
 #Id 5 (depend ID2)
@@ -126,7 +127,7 @@ def testInputUserProductName():
     #quand j'entre la désignation de l'article,
     #alors j'affiche une ligne avec les éléments suivants  :
 	#designation + quantity + unit price + articleTotalPrice
-    print('None')
+    assert prgm.saisirPUEtQuantite(2,4,"stylo") == "stylo     2     4     8", "problème de quantité, d'unité ou de prix total de l'article"
 
 #Id 19 (depend ID7, ID19)
 def testReduction20siFR20000():
@@ -141,3 +142,4 @@ def testReduction20siFR20000():
 testsaisirPUEtQuantite()
 testAfficherLePrixTotal()
 testAjoutArticle()
+testInputUserProductName()
