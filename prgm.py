@@ -58,9 +58,15 @@ def ajouterUnArticle(choix):
     else:
         proposerAjouterArticle()
 
+# Afficher une réduction
+def ligneDeReduction(montantTotal):
+    return "Discount               -"+str(0)
+
 def printFooter():
     print("-------------------------------")
     print("Total without taxes" + "     " + str(calculerTotalHTCommande()))
+    print(ligneDeReduction(0))
+    print("-------------------------------")
 
 if __name__ == "__main__":
     init()

@@ -81,7 +81,7 @@ def testAfficherMontantTotalReduction():
     #quand j'ai une commande avec au moins un article,
     #alors j'affiche un taux de réduction fixe de 0e de la manière suivante :
 	#       "Discount " et tout a droite "-"+0e
-    print('None')
+    assert (len(prgm.commande)!=0) and (prgm.ligneDeReduction(0)=="Discount               -0"), "erreur sur la reduction de depart"
 
 #Id 10 (depend ID9)
 def testDemanderUserSaisieTauxReduction():
@@ -143,3 +143,4 @@ testsaisirPUEtQuantite()
 testAfficherLePrixTotal()
 testAjoutArticle()
 testInputUserProductName()
+testAfficherMontantTotalReduction()
