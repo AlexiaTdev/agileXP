@@ -1,3 +1,5 @@
+# Prerequis avoir l'extension make sur votre OS
+
 # Pour enregistrer les travaux sur ta branche github
 # commande exemple: make msg="add user table" save-all
 # avec msg comme variable str
