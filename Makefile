@@ -15,10 +15,10 @@ merge-master:
 
 # Pour lancer le test
 # commande exemple: make test
--t:
+test:
 	python .\testPrgm.py
 
 # Pour lancer l'application python
 # commande exemple: make b="feature/id2" merge-master
--l:
+launch:
 	python .\prgm.py
