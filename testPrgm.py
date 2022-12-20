@@ -34,7 +34,8 @@ def testAfficherLePrixTotal():
     # alors j'affiche une ligne de la manière suivante :
         #"-----------------------------------------------------"
         #"Total without taxes" + totalHT
-    print('none')
+    prgm.creerUnArticle(5,1)
+    assert prgm.calculerTotalHTCommande() == 5, "probleme de total HT"
 
 #Id 5 (depend ID2)
 def testCalculPrixTTC():
@@ -135,3 +136,4 @@ def testReduction20siFR20000():
 ##SUITE DE TESTS AUTOMATISES
 # ID2
 testsaisirPUEtQuantite()
+testAfficherLePrixTotal()
